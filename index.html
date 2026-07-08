@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Training — Where We Align</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;
+  --white:#FFFFFF;
+  --border:#DDD8D0;
+  --border-dark:#C4BDB3;
+  --text:#1E2A35;
+  --text-mid:#4A5A68;
+  --text-light:#7A8D9A;
+  --accent:#2C5F8A;
+  --accent-light:#EAF1F8;
+  --orange:#C85A1A;
+  --orange-light:#FDF3ED;
+  --green:#1E7A4A;
+  --green-light:#EAF5EF;
+  --purple:#6B3FA0;
+  --purple-light:#F3EEF9;
+  --gold:#8A6A1A;
+  --gold-light:#FBF6E9;
+  --blue:#2C5F8A;
+  --blue-light:#EAF1F8;
+  --gap:#A03020;
+  --gap-light:#FDECEA;
+  --aligned:#1E5C35;
+  --aligned-light:#E8F5EE;
+}
+body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;padding:48px 40px 80px;max-width:1200px;margin:0 auto}
+
+/* HEADER */
+.header{margin-bottom:36px;padding-bottom:24px;border-bottom:2px solid var(--border)}
+.header-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;color:var(--text-light);text-transform:uppercase;margin-bottom:8px}
+.header h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:900;color:var(--text);text-transform:uppercase;line-height:1;letter-spacing:1px}
+.header h1 span{color:var(--accent)}
+.header-sub{font-size:14px;color:var(--text-mid);margin-top:10px;line-height:1.5}
+
+/* LEGEND */
+.legend{display:flex;gap:16px;margin-bottom:32px;flex-wrap:wrap;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 20px}
+.legend-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-right:4px;align-self:center}
+.legend-item{display:flex;align-items:center;gap:8px}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.legend-name{font-size:13px;font-weight:600;color:var(--text)}
+.legend-role{font-size:11px;color:var(--text-light);margin-left:2px}
+
+/* SECTION */
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;color:var(--text-light);text-transform:uppercase;margin-bottom:16px;margin-top:40px}
+
+/* QUESTION BLOCK */
+.q-block{background:var(--white);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.q-header{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;background:var(--white)}
+.q-num{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-light);text-transform:uppercase;white-space:nowrap;padding-top:2px}
+.q-text{font-size:14px;font-weight:600;color:var(--text);line-height:1.4}
+
+/* ANSWER GRID */
+.q-body{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.q-answer{padding:16px 18px;border-right:1px solid var(--border)}
+.q-answer:last-child{border-right:none}
+.answer-name{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px;color:var(--text-mid)}
+.answer-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.answer-text{font-size:12.5px;color:var(--text-mid);line-height:1.55}
+
+/* ALIGNMENT BAR */
+.alignment-bar{padding:10px 20px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.badge{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:4px;white-space:nowrap}
+.badge-aligned{background:var(--aligned-light);color:var(--aligned)}
+.badge-gap{background:var(--gap-light);color:var(--gap)}
+.badge-unanimous{background:var(--blue-light);color:var(--blue)}
+.badge-note{font-size:12px;color:var(--text-light);font-style:italic}
+
+/* QUOTES */
+.quote-block{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.quote-inner{padding:18px 22px;border-left:4px solid var(--accent)}
+.quote-text{font-size:14px;color:var(--text);line-height:1.6;font-style:italic}
+.quote-attr{font-size:11px;color:var(--text-light);margin-top:8px;font-style:normal;font-weight:600;letter-spacing:0.5px}
+
+/* INSIGHT BOX */
+.insight-box{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:28px 32px;margin-top:32px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.insight-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;color:var(--text-light);text-transform:uppercase;margin-bottom:20px}
+.insight-row{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.insight-row:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.insight-num{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--border-dark);line-height:1;flex-shrink:0;width:28px}
+.insight-text{font-size:13.5px;color:var(--text-mid);line-height:1.6}
+.insight-text strong{color:var(--text);font-weight:700}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  body{padding:28px 20px 60px}
+  .q-body{grid-template-columns:1fr 1fr}
+  .q-answer{border-bottom:1px solid var(--border)}
+  .q-answer:nth-child(even){border-right:none}
+}
+@media(max-width:560px){
+  .q-body{grid-template-columns:1fr}
+  .q-answer{border-right:none}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">Comfort Advisor Training — Pre-Build Survey Results</div>
+  <h1>Where <span>We Stand</span></h1>
+  <div class="header-sub">Five people answered ten questions before a single slide was built. Here's what came back and what it means for August 17.</div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <span class="legend-label">Respondents</span>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div><span class="legend-name">Todd</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span class="legend-name">Andre Budonaro</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div><span class="legend-name">Mike Williams</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div><span class="legend-name">Juan Guzman</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div><span class="legend-name">Joey Pizzolongo</span></div>
+</div>
+
+<div class="section-title">Question by Question</div>
+
+<!-- Q1 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q1</span><span class="q-text">Where is the biggest gap in our Comfort Advisors right now?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">Mindset and self-worth. They discount before the homeowner even pushes back.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">Mindset and self-worth. Objection handling. No proven follow-up process.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">The presentation. They have the information but can't deliver it confidently at the table.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Mindset and self-worth. They discount before the homeowner even pushes back.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Mindset and self-worth. Objection handling. They fold the second someone pushes back.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-aligned">4 of 5 Aligned</span>
+    <span class="badge-note">Mindset and self-worth is the dominant answer. The class opens with belief, not technique.</span>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q2</span><span class="q-text">When a CA loses a sale, what's the real reason most of the time?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">Process. The CA skipped something earlier in the call that made the close impossible.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">Confidence and process. Didn't believe in the number and skipped steps that would have prevented the objection.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">Process. They skipped something earlier in the call.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Competition. The homeowner was already shopping and we were never going to win it.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Confidence and process. Didn't believe in the number, cut corners on the call.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-aligned">Mostly Aligned</span>
+    <span class="badge-note">Four out of five say process or confidence. Nobody said price. Juan is the one outlier who says competition, worth addressing: some losses are unwinnable, but most aren't.</span>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q3</span><span class="q-text">How comfortable are our CAs presenting financing as part of every call?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">Financing is a homeowner-serving tool. It belongs on every call, not as a last resort.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">Very comfortable. They lead with it naturally.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">Somewhat comfortable. They mention it only when the homeowner hesitates on price.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Somewhat comfortable. They mention it only when the homeowner hesitates on price.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Somewhat comfortable. They mention it only when the homeowner hesitates on price.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-gap">Needs Alignment</span>
+    <span class="badge-note">Andre is the only one who sees CAs leading with financing naturally. Three others say it only comes out when the homeowner hesitates. We need to agree on one approach before August 17.</span>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q4</span><span class="q-text">What does a great CA do in the first fifteen minutes that an average CA doesn't?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">Earns the right to present. Builds trust before talking about equipment.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">Humanizes themselves. Makes the customer forget they're talking to a salesperson.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">Runs real discovery. Becomes a problem solver, not a bidder. Differentiates before anyone talks numbers.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Establishes trust and rapport by evaluating needs and listening.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Clears out objections up front with proper discovery questions and agenda setting.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-aligned">Fully Aligned</span>
+    <span class="badge-note">Five different ways of saying the same thing. The first fifteen minutes is about earning trust, not starting the pitch.</span>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q5</span><span class="q-text">When you picture the CA who needs this class most, what does their problem look like?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">Doesn't believe they're worth what they charge. Folds before the homeowner even pushes.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">The veteran running on autopilot. Comfortable with what used to work. Stopped learning.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">Bidding the job instead of solving the problem. Projecting their own financial situation onto the customer.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Doesn't evoke confidence. The homeowner can feel it and it costs them the sale.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Judging the call before arriving. Cutting corners on process before they're even in the door.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-aligned">Aligned</span>
+    <span class="badge-note">Five pictures of the same person. Self-worth, complacency, projection, low confidence, and pre-judging calls are all the same root problem wearing different clothes.</span>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q6</span><span class="q-text">What's the one thing you wish someone had taught you earlier about selling in this industry?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">The process protects you. Run it every time and the result takes care of itself.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">Be humble. Set your ego aside. Embrace coaching before you think you need it.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">The power of open-ended lines of inquiry. Ask better questions and the homeowner tells you how to help them.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Customers expect to be sold now. Focus on disarming them first before anything else.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Value is not just words. It's a process that shows it. People need to see it, not just hear it.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-aligned">Aligned</span>
+    <span class="badge-note">Process, humility, curiosity, disarming, and demonstrated value. Five pillars that belong in the same class.</span>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q7</span><span class="q-text">How should we handle objections in this class?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">Handle, don't overcome. Work with the homeowner's real concern, not around it.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">Both: scripts for the moment and process upstream. Objections aren't objections, they're holes in discovery.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">Prevent them by running a better process earlier. Close the price objection before it becomes one.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Prevent them upstream by running a better process earlier in the call.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Both: scripts for the moment and process to prevent them upstream.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-aligned">Fully Aligned</span>
+    <span class="badge-note">All five point the same direction. Objections are a process failure, not a closing problem. Prevent first, handle second.</span>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q8</span><span class="q-text">Role play in training: how much is too much?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">You can never have too much. Reps are everything.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">You can never have too much. Reps are everything.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">You can never have too much. Reps are everything.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">You can never have too much. Reps are everything.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">You can never have too much. But treat it like a real call in a real home, not practice where you expect to mess up.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-unanimous">Unanimous — 5 of 5</span>
+    <span class="badge-note">Settled. Day 2 is reps. Joey's note is the most important one: treat it like you're in an actual home, not like practice.</span>
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q9</span><span class="q-text">When you're in a training room, what's the moment you're most in your element?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">Teaching mindset and identity. Getting people to believe in themselves before we talk about anything else.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">The technical process work. Discovery, evaluation, building options.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">Role play and coaching. Watching reps and giving feedback. Better in the trenches than at the front.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Role play and coaching. Watching reps and giving feedback.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Role play and coaching. Watching reps and giving feedback.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-aligned">Natural Division</span>
+    <span class="badge-note">Every person landed in a different lane without being asked to. The class is already dividing itself.</span>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="q-block">
+  <div class="q-header"><span class="q-num">Q10</span><span class="q-text">What would make you walk out of Day 2 feeling like it was worth every hour?</span></div>
+  <div class="q-body">
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--orange)"></div>Todd</div><div class="answer-text">CAs who walk out believing they're worth what they charge and know what to do Monday morning.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--green)"></div>Andre</div><div class="answer-text">Watching the quiet skeptic open up. The one who came in defensive and left trusting the process.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--blue)"></div>Mike Williams</div><div class="answer-text">CAs who can close the price objection before it becomes one. Leave with that skill and the class paid for itself.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--purple)"></div>Juan Guzman</div><div class="answer-text">Hearing peers share real success stories and how they got out of a slump. Real wins from real people in the room.</div></div>
+    <div class="q-answer"><div class="answer-name"><div class="answer-dot" style="background:var(--gold)"></div>Joey Pizzolongo</div><div class="answer-text">Seeing role play done at full intensity, treating it like a real call in a real home, not practice where you expect to mess up.</div></div>
+  </div>
+  <div class="alignment-bar">
+    <span class="badge badge-aligned">Aligned</span>
+    <span class="badge-note">Belief, breakthrough, skill, peer wins, and full-intensity reps. Every one of these belongs in how Day 2 closes.</span>
+  </div>
+</div>
+
+<!-- LINES WORTH KEEPING -->
+<div class="section-title">Lines Worth Keeping</div>
+
+<div class="quote-block">
+  <div class="quote-inner">
+    <div class="quote-text">"CAs look at role play like practice where they expect to mess up, so they don't go all in. They should treat it as though they are in an actual home."</div>
+    <div class="quote-attr">Joey Pizzolongo</div>
+  </div>
+</div>
+<div class="quote-block">
+  <div class="quote-inner">
+    <div class="quote-text">"Objections aren't really objections. They're usually holes or gaps in our discovery process."</div>
+    <div class="quote-attr">Andre Budonaro</div>
+  </div>
+</div>
+<div class="quote-block">
+  <div class="quote-inner">
+    <div class="quote-text">"The moment you think you've got it all figured out is usually the moment you stop growing."</div>
+    <div class="quote-attr">Andre Budonaro</div>
+  </div>
+</div>
+<div class="quote-block">
+  <div class="quote-inner">
+    <div class="quote-text">"Value is not just words spoken but a true process that shows it."</div>
+    <div class="quote-attr">Joey Pizzolongo</div>
+  </div>
+</div>
+
+<!-- INSIGHT BOX -->
+<div class="insight-box">
+  <div class="insight-label">What this tells us about the class</div>
+  <div class="insight-row">
+    <span class="insight-num">01</span>
+    <span class="insight-text"><strong>The sale is lost before the table, not at it.</strong> Four out of five said process or confidence. Nobody said price. The fix lives in mindset and discovery, not a better closing script.</span>
+  </div>
+  <div class="insight-row">
+    <span class="insight-num">02</span>
+    <span class="insight-text"><strong>The class opens with belief, not technique.</strong> Four out of five named mindset and self-worth as the biggest gap. If a CA doesn't believe they're worth what they charge before they walk in the door, the skills don't stick.</span>
+  </div>
+  <div class="insight-row">
+    <span class="insight-num">03</span>
+    <span class="insight-text"><strong>Objections are a process failure.</strong> All five pointed the same direction. Prevent first, handle second. Run the process right and most objections never show up.</span>
+  </div>
+  <div class="insight-row">
+    <span class="insight-num">04</span>
+    <span class="insight-text"><strong>Role play is non-negotiable and needs to be treated like the real thing.</strong> Unanimous on reps. Joey named the problem: CAs treat it like practice where they expect to mess up. That changes in this class.</span>
+  </div>
+  <div class="insight-row">
+    <span class="insight-num">05</span>
+    <span class="insight-text"><strong>One thing needs to be resolved before we build.</strong> Andre sees CAs leading with financing naturally. Three others say it only comes out when the homeowner hesitates on price. We need to land on one answer before August 17.</span>
+  </div>
+</div>
+
+</body>
+</html>
